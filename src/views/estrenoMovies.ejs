@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peliculas estreno</title>
+</head>
+<style>
+    span{
+        color:red;
+    }
+</style>
+<body>
+    <h1>Peliculas Estreno</h1>
+    <ul>
+        <% for(let i = 0;i < movies.length;i++){ %>
+            <li><span>Titulo:</span> <%= movies[i].title %> ||<span>fecha de estreno:</span> <%= movies[i].release_date %>  </li>
+        <% } %> 
+    </ul>
+</body>
+</html>

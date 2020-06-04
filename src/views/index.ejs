@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Listado de Peliculas</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <form action="/movies/search" method="post">
+      <input type="text" name="title" id="" placeholder="Buscar pelicula">
+      <button type="submit">Buscar</button>
+    </form>
+    <h1>Lista de todas las Peliculas</h1>
+    <ul>
+    <% for(let i = 0;i < movies.length;i++){ %>
+      <li><a href="/detail/<%= movies[i].id %>"><%= movies[i].title %> </a></li>
+    <% } %>
+    </ul>
+  </body>
+</html>

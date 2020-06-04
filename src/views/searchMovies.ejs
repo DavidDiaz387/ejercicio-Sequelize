@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado</title>
+</head>
+<style>
+    span{
+        color:red;
+    }
+</style>
+<body>
+    <h1>Resultado de la Busqueda:</h1>
+    <ul>
+        <% for(let i = 0;i < resultado.length;i++){ %>
+            <li><span>Titulo:</span> <%= resultado[i].title %> </li>
+        <% } %> 
+    </ul>
+</body>
+</html>
