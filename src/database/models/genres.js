@@ -8,6 +8,10 @@ module.exports = (sequelize,Datatypes)=>{
         {
             timestamps:false
         }
-    )
+    );
+    genre.associate = function(models){
+        console.log(models)
+        genre.hasMany(models.Movie)
+    }
     return genre
 }

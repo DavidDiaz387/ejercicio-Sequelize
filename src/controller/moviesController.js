@@ -12,7 +12,9 @@ let moviesController = {
         })
     },
     detail:function(req,res){
-        DB.Movie.findByPk(req.params.id)
+        DB.Movie.findByPk(req.params.id,{
+            include:["Actors"]
+        })
         .then(function(movie){
             res.render('detailMovie',{movie:movie})
         })
@@ -46,6 +48,14 @@ let moviesController = {
         })
             .then(function(resultado){
                 res.render('searchMovies',{resultado:resultado})
+            })
+    },
+    create:(req,res)=>{
+        DB.Movie.findAll({
+            include:["genres"]
+        })
+            .then(function(movie){
+                res.render('createForm',{movie:movie})
             })
     }
 }

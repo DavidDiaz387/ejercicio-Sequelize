@@ -12,5 +12,7 @@ router.get('/movies/new',moviesController.nuevo);
 router.get('/movies/recommended',moviesController.recom);
 /**Buscador de Peliculas */
 router.post('/movies/search',moviesController.search);
+/**Crear peliculas */
+router.get('/movies/create',moviesController.create);
 
 module.exports = router;

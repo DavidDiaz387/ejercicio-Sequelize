@@ -1,6 +1,6 @@
 module.exports = (sequelize,Datatypes)=>{
     let actor = sequelize.define(
-        "actor",
+        "Actor",
         {
             first_name:Datatypes.STRING,
             last_name:Datatypes.STRING,
@@ -9,6 +9,15 @@ module.exports = (sequelize,Datatypes)=>{
         {
             timestamps:false
         }
-    )
+    );
+    actor.associate = function(models){
+        actor.belongsToMany(models.Movie,{
+            as:"Movies",
+            through:"actor_movie",
+            foreignKey:"actor_id",
+            otherKey:"movie_id",
+            timestamps:false
+        })
+    }
     return actor
 }
