@@ -17,11 +17,24 @@
         <li><span>Premios:</span> <%= movie.awards %> </li>
         <li><span>Duracion:</span> <%= movie.length %> </li>
         <li><span>Fechade estreno:</span><%= movie.release_date %> </li>
+        <% if (movie.genre) { %>
+            <li><span>Genero:</span> <a href="/movies/generos/<%= movie.genre.id %>"> <%= movie.genre.name %> </a> </li>
+        <% }else{ %>
+            <li><span>Genero:</span> No tiene Genero </li>
+        <% } %>
+        <li><span>Actores:</span></li>
+        <ul> 
+            <% movie.actors.forEach(actor => { %>
+                <li><a href="/movies/actores/<%= actor.id %>"> <%= actor.first_name %></a></li>
+            <% }) %>   
+        </ul> 
     </ul>
-    <form action="" method="post">
+
+
+    <form action="/movies/edit/<%= movie.id %> " method="GET">
         <button type="submit">Editar</button>
       </form>
-    <form action="" method="post">
+    <form action="/movies/delete/<%= movie.id %>?_method=delete" method="post">
         <button type="submit">Borrar</button>
         </form>
 </body>

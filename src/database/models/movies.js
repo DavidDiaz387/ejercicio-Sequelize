@@ -7,16 +7,23 @@ module.exports = (sequelize,Datatypes)=>{
             awards:Datatypes.INTEGER,
             length:Datatypes.INTEGER,
             release_date:Datatypes.DATE,
-            genre_id:Datatypes.INTEGER
+            genre_id:Datatypes.INTEGER,
+            deleted_at:Datatypes.DATE
     },{
         timestamps:false
     });
     movie.associate = function(models){
-        movie.belongsTo(models.Genre)
-    }
-    movie.associate = function(models){
+        movie.belongsTo(models.genre,{
+            as:"genre"
+        })
+        movie.hasMany(models.actorMovie,{
+            as:"actorMovie",
+            foreignKey:"movie_id",
+            otherKey:"actor_id"
+        })
+    
         movie.belongsToMany(models.Actor,{
-            as:"Actors",
+            as:"actors",
             through:"actor_movie",
             foreignKey:"movie_id",
             otherKey:"actor_id",

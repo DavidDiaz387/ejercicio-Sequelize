@@ -12,11 +12,16 @@ module.exports = (sequelize,Datatypes)=>{
     );
     actor.associate = function(models){
         actor.belongsToMany(models.Movie,{
-            as:"Movies",
+            as:"movies",
             through:"actor_movie",
             foreignKey:"actor_id",
             otherKey:"movie_id",
             timestamps:false
+        })
+        actor.hasMany(models.actorMovie,{
+            as:"actorMovie",
+            foreignKey:"actor_id",
+            otherKey:"movie_id"
         })
     }
     return actor

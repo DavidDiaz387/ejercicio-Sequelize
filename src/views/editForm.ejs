@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Pelicula</title>
+</head>
+<body>  
+    <h1>Editar pelicula:<%= movie.title %> </h1>
+    <form action="/movies/edit/<%= movie.id %>?_method=PUT" method="post">
+        <label for="">Titulo:</label>
+        <input type="text" name="title" id="" value="<%= movie.title %> ">
+        <label for="">Premios:</label>
+        <input type="text" name="awards" id="" value="<%= movie.awards %> ">
+        <label for="">Rating</label>
+        <input type="text" name="rating" id="" value="<%= movie.rating %> ">
+        <label for="">Duracion:</label>
+        <input type="text" name="length" id="" value="<%= movie.length %> ">
+        <% if(movie.genre){ %> 
+        <label for="">Genero: <%= movie.genre.name %></label>
+        <% }else{ %>
+        <label for="">Agregar Genero:<label>
+        <% } %> 
+        <select name="genre" id="">
+            <% genre.forEach(genres =>{ %> 
+            <option value="<%= genres.id %>"><%= genres.name %> </option>
+            <% }) %>
+        </select>
+        <button type="submit">Editar</button> 
+    </form>
+</body>
+</html>

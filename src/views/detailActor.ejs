@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de Actores</title>
+</head>
+<body>
+    <h1>Actor/ar</h1>
+    <h2>Nombre: <%= actor.first_name %> || Apellido: <%= actor.last_name %> </h2>
+    <ul>
+        <% if (actor.movies) { %>
+            <% actor.movies.forEach(movies => { %>
+                <li><%= movies.title %> </li>
+            <% }) %>
+        <% }else{ %>
+        <li>No actuo en Peliculas</li>
+        <% } %> 
+    </ul>
+</body>
+</html>

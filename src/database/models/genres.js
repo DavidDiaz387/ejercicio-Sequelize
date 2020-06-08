@@ -1,6 +1,6 @@
 module.exports = (sequelize,Datatypes)=>{
     let genre = sequelize.define(
-        "Genre",
+        "genre",
         {
             name:Datatypes.STRING,
             ranking:Datatypes.INTEGER
@@ -10,8 +10,9 @@ module.exports = (sequelize,Datatypes)=>{
         }
     );
     genre.associate = function(models){
-        console.log(models)
-        genre.hasMany(models.Movie)
+        genre.hasMany(models.Movie,{
+            as:"Movie"
+        })
     }
     return genre
 }

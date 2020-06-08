@@ -8,21 +8,22 @@
 <body>
     <form action="/movies/create" method="post">
         <label for="">Titulo:</label>
-        <input type="text" name="" id="">
+        <input type="text" name="title" id="">
         <label for="">Rating:</label>
-        <input type="text" name="" id="">
+        <input type="text" name="rating" id="">
         <label for="">Premios:</label>
-        <input type="text" name="" id="">
+        <input type="text" name="awards" id="">
         <label for="">Duracion:</label>
-        <input type="text" name="" id="">
+        <input type="text" name="length" id="">
         <label for="">Genero</label>
-        <select name="genero" id="">
-            <% if (movie.genre) { %>
-                <% movie.forEach(movies => { %>
-                    <option value="<%= movies.genre.id %> "><%= movies.genre.name %> </option>
+        <select name="genre" id="">
+            <% if(genero){ %>
+                <% genero.forEach(genre => {%>
+                    <option value="<%= genre.id %>"><%= genre.name %> </option>
                 <% }) %>
             <% } %>    
         </select>
+        <button type="submit">Crear</button>
     </form>
 </body>
 </html>

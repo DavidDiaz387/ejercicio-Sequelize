@@ -12,8 +12,11 @@
     <h1>Lista de todas las Peliculas</h1>
     <ul>
     <% for(let i = 0;i < movies.length;i++){ %>
-      <li><a href="/detail/<%= movies[i].id %>"><%= movies[i].title %> </a></li>
+      <li><a href="/movies/detail/<%= movies[i].id %>"><%= movies[i].title %> </a></li>
     <% } %>
     </ul>
+    <form action="/movies/creacion" method="get">
+      <button type="submit">Crear nueva realcion</button>
+    </form>
   </body>
 </html>
